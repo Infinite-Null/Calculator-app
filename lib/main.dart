@@ -72,20 +72,27 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
+    double mm;
+    double a = 0.03;
+    if (MediaQuery.of(context).size.height.toDouble() <= 690 ||
+        MediaQuery.of(context).size.width.toDouble() <= 340) {
+      a = 0.002;
+    }
+    mm = MediaQuery.of(context).size.width.toDouble() * 0.05;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 100,
+            height: MediaQuery.of(context).size.height * a,
           ),
           Result(input, output, outputSize, hide),
           Container(
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(mm),
             alignment: Alignment.center,
             width: double.infinity,
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(mm),
             decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(15),
@@ -120,7 +127,7 @@ class _CalculatorState extends State<Calculator> {
                   ],
                 ),
                 Container(
-                  height: 25,
+                  height: mm * 1.7,
                 ),
                 Row(
                   children: [
@@ -134,7 +141,7 @@ class _CalculatorState extends State<Calculator> {
                   ],
                 ),
                 Container(
-                  height: 10,
+                  height: mm,
                 ),
                 Row(
                   children: [
@@ -148,7 +155,7 @@ class _CalculatorState extends State<Calculator> {
                   ],
                 ),
                 Container(
-                  height: 10,
+                  height: mm,
                 ),
                 Row(
                   children: [
@@ -162,19 +169,16 @@ class _CalculatorState extends State<Calculator> {
                   ],
                 ),
                 Container(
-                  height: 10,
+                  height: mm,
                 ),
                 Row(
                   children: [
-                    Button(a: '0', b: 150, x: () => cal('0')),
+                    Button(a: '0', b: 0.4, x: () => cal('0')),
                     Spacer(),
                     Button(a: '.', x: () => cal('.')),
                     Spacer(),
                     Button(a: '=', x: () => cal('=')),
                   ],
-                ),
-                Container(
-                  height: 10,
                 ),
               ],
             ),

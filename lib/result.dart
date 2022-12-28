@@ -10,11 +10,15 @@ class Result extends StatelessWidget {
   Result(this.inp, this.out, this.outsiz, this.hid);
   @override
   Widget build(BuildContext context) {
+    double mm;
+    mm = MediaQuery.of(context).size.width.toDouble() * 0.05;
+    double km;
+    km = MediaQuery.of(context).size.width.toDouble() * 0.45;
     return Container(
         alignment: Alignment.center,
-        height: 200,
+        height: km,
         width: double.infinity,
-        margin: EdgeInsets.all(20),
+        margin: EdgeInsets.all(mm),
         decoration: BoxDecoration(
             color: Colors.grey[300],
             borderRadius: BorderRadius.circular(15),
