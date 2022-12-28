@@ -21,11 +21,13 @@ class _CalculatorState extends State<Calculator> {
   String output = '';
   double outputSize = 30;
   bool hide = false;
+  bool out = false;
   void cal(String pressed) {
     if (pressed == 'AC') {
       input = input + pressed;
       input = '';
       output = '';
+      out = false;
     } else if (pressed == '<') {
       if (input != '') {
         input = input.substring(0, input.length - 1);
@@ -43,9 +45,25 @@ class _CalculatorState extends State<Calculator> {
         input = output;
         hide = true;
         outputSize = 38;
+        out = true;
       }
     } else {
       input = input + pressed;
+      if (out) {
+        if (pressed == '%' ||
+            pressed == '*' ||
+            pressed == '/' ||
+            pressed == '-' ||
+            pressed == '+') {
+          hide = false;
+          outputSize = 30;
+          out = false;
+        } else {
+          input = '';
+          input += pressed;
+          out = false;
+        }
+      }
       hide = false;
       outputSize = 30;
     }
