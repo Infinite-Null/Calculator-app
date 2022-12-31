@@ -11,8 +11,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     double ker = MediaQuery.of(context).size.width.toDouble() * b;
     double rem = MediaQuery.of(context).size.height.toDouble() * 0.08;
-    print(MediaQuery.of(context).size.height.toDouble());
-    print(MediaQuery.of(context).size.width.toDouble());
+   
     if (MediaQuery.of(context).size.height.toDouble() <= 690 ||
         MediaQuery.of(context).size.width.toDouble() <= 340) {
       rem = MediaQuery.of(context).size.height.toDouble() * 0.085;
@@ -24,7 +23,7 @@ class Button extends StatelessWidget {
         style: TextStyle(
           fontWeight: FontWeight.w900,
           fontSize: 20,
-          color: Color.fromARGB(168, 33, 33, 33),
+          color: Color.fromARGB(168, 198, 198, 198),
         ),
       ),
       style: ElevatedButton.styleFrom(
